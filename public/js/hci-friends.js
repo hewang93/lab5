@@ -8,13 +8,30 @@ $(document).ready(function() {
 /*
  * Function that is called when the document is ready.
  */
+
+
 function initializePage() {
 	console.log("Javascript connected!");
+	// All <a> elements inside an element of class "friends" */
+	$("a.WHY").click(anagram);
+}
+
+function anagram(e){
+	// Prevent page from reloading
+	e.preventDefault();
+	
+	var name2 = $(this).text();
+	var newName = anagrammedName(name2);
+	console.log(name2);
+	console.log(newName);
+
+	//Retrieve current name
+	$(this).text(newName);
 }
 
 function anagrammedName(name) {
+	/*name = name.trim();*/
 	// Thanks, Internet Anagram Server!
-	
 	if (name == "Doug Engelbart") {
 		return "Notable Grudge";
 	} 
